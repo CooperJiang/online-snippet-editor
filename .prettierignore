@@ -1,0 +1,10 @@
+# Ignore artifacts:
+**/node_modules
+.nuxt
+assets/icons/*
+assets/fonts/*
+public/**/*
+ 
+# Ignore all HTML files:
+**/*.md
+**/*.html

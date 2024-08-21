@@ -1,0 +1,26 @@
+{
+  "cSpell.words": [
+    "camelcase",
+    "composables",
+    "estree",
+    "materialdesignicons",
+    "nuxt",
+    "nuxtignore",
+    "nuxtjs",
+    "Parens",
+    "persistedstate",
+    "pinia",
+    "tailwindcss",
+    "uuidv",
+    "vuetify",
+    "vueuse"
+  ],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+   "source.fixAll": "always",
+   "source.fixAll.eslint": "always"
+ },
+ "editor.tabSize": 2,
+ "editor.insertSpaces": true,
+  "editor.indentSize": "tabSize"
+}
