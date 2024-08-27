@@ -33,14 +33,7 @@
               <G-selectMenu :menu-list="htmlMenuList" icon="material-symbols:arrow-drop-down-circle" @command="menuItemClick" />
             </div>
           </div>
-          <G-codemirror
-            ref="htmlRef"
-            :showMask="size.width <= 40"
-            v-model="html"
-            lang="html"
-            theme="dark"
-            placeholder="Enter your html code here..."
-          />
+          <G-codemirror :showMask="size.width <= 40" v-model="html" lang="html" theme="dark" placeholder="Enter your html code here..." />
         </template>
         <template #css="{ size }">
           <div class="flex h-[35px] w-full items-center justify-between bg-[#18212d]">
@@ -60,14 +53,7 @@
               <G-selectMenu :menu-list="cssMenuList" icon="material-symbols:arrow-drop-down-circle" @command="menuItemClick" />
             </div>
           </div>
-          <G-codemirror
-            ref="cssRef"
-            :showMask="size.width <= 40"
-            v-model="css"
-            lang="css"
-            theme="dark"
-            placeholder="Enter your css code here..."
-          />
+          <G-codemirror :showMask="size.width <= 40" v-model="css" lang="css" theme="dark" placeholder="Enter your css code here..." />
         </template>
         <template #js="{ size }">
           <div class="flex h-[35px] w-full items-center justify-between bg-[#18212d]">
@@ -80,14 +66,7 @@
               <G-selectMenu :menu-list="jsMenuList" icon="material-symbols:arrow-drop-down-circle" @command="menuItemClick" />
             </div>
           </div>
-          <G-codemirror
-            ref="jsRef"
-            :showMask="size.width <= 40"
-            v-model="js"
-            lang="javascript"
-            theme="dark"
-            placeholder="Enter your js code here..."
-          />
+          <G-codemirror :showMask="size.width <= 40" v-model="js" lang="javascript" theme="dark" placeholder="Enter your js code here..." />
         </template>
         <template #run-iframe="{ size }">
           <RunIframe ref="runIframeRef" :options="runIframeOptions" :pre-settings="preSettings" v-if="showSettings" />
@@ -119,9 +98,6 @@ const css = ref(editorCodeParamsStore.runIframeOptions.css)
 const js = ref(editorCodeParamsStore.runIframeOptions.js)
 const preSettings = ref(editorCodeParamsStore.preSettings)
 const runIframeOptions = ref(editorCodeParamsStore.runIframeOptions)
-const htmlRef = ref<any>(null)
-const cssRef = ref<any>(null)
-const jsRef = ref<any>(null)
 const runIframeRef = ref<any>(null)
 const settingDialogRef = ref<any>(null)
 const showSettings = computed(() => preSettings.value && Object.keys(preSettings.value).length > 0)
@@ -182,21 +158,18 @@ async function formatEditorCode(options: any) {
     try {
       const code = await formatCode(js.value, language)
       js.value = code
-      jsRef.value && jsRef.value.refresh(code)
     } catch (error) {}
   }
   if (["css"].includes(language)) {
     try {
       const code = await formatCode(css.value, language)
       css.value = code
-      cssRef.value && cssRef.value.refresh(code)
     } catch (error) {}
   }
   if (["html", "vue"].includes(language)) {
     try {
       const code = await formatCode(html.value, language)
       html.value = code
-      htmlRef.value && htmlRef.value.refresh(code)
     } catch (error) {}
   }
 }
@@ -239,9 +212,6 @@ function resetEditor() {
   html.value = ""
   css.value = ""
   js.value = ""
-  htmlRef.value && htmlRef.value.refresh("")
-  cssRef.value && cssRef.value.refresh("")
-  jsRef.value && jsRef.value.refresh("")
 }
 </script>
 

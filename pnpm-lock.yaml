@@ -78,8 +78,8 @@ dependencies:
     specifier: ^3.12.4
     version: 3.12.4(eslint@9.8.0)(less@4.2.0)(sass-embedded@1.77.8)(typescript@5.5.4)(vite@5.4.0)
   nuxt-codemirror:
-    specifier: ^0.0.10
-    version: 0.0.10(@codemirror/autocomplete@6.18.0)(@codemirror/language@6.10.2)(@codemirror/lint@6.8.1)(@codemirror/search@6.5.6)
+    specifier: ^0.0.11
+    version: 0.0.11(@codemirror/autocomplete@6.18.0)(@codemirror/language@6.10.2)(@codemirror/lint@6.8.1)(@codemirror/search@6.5.6)
   nuxt-icon:
     specifier: 1.0.0-beta.7
     version: 1.0.0-beta.7(vite@5.4.0)(vue@3.4.37)
@@ -6834,8 +6834,8 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /nuxt-codemirror@0.0.10(@codemirror/autocomplete@6.18.0)(@codemirror/language@6.10.2)(@codemirror/lint@6.8.1)(@codemirror/search@6.5.6):
-    resolution: {integrity: sha512-dWTNGkNqnHnU4g/Eq4cxNS5AJIYiKRNBFjdmqYL4zGV7Dlfoxi8WyS/X4wm299kN2tqJBNaKxKW7qrFGZS5QyA==}
+  /nuxt-codemirror@0.0.11(@codemirror/autocomplete@6.18.0)(@codemirror/language@6.10.2)(@codemirror/lint@6.8.1)(@codemirror/search@6.5.6):
+    resolution: {integrity: sha512-NuiPwQ6+sfiX66QFg5LrOgF5nvpt77Ywx52PWb2T6IgXeX8UqJAToA1Nqw612b/Q1b7LdoejTCfK3TrAdNk4gQ==}
     dependencies:
       '@babel/runtime': 7.25.0
       '@codemirror/commands': 6.6.0

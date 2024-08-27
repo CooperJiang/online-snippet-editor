@@ -33,19 +33,11 @@ const props = withDefaults(defineProps<Props>(), {
 const code = ref(props.modelValue)
 
 watch(
-  () => props.updateCode,
+  () => props.modelValue,
   (val: any) => {
     code.value = val
-    key.value += 1
   }
 )
-
-function refresh(nCode: string) {
-  code.value = nCode
-  key.value += 1
-}
-
-defineExpose({ refresh })
 
 const extensions = computed(() => {
   switch (props.lang) {
