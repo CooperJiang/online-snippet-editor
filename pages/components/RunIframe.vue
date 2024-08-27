@@ -4,7 +4,7 @@
     :key="key"
     :srcdoc="code"
     style="border: none; width: 100%; height: 100%"
-    sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-scripts allow-top-navigation-by-user-activation"
+    sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-scripts allow-top-navigation-by-user-activation allow-same-origin"
     allow="accelerometer; bluetooth; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write; web-share; serial; xr-spatial-tracking"
     scrolling="auto"
     allowpaymentrequest="true"
@@ -76,13 +76,15 @@ async function run() {
 
 defineExpose({ run })
 
-// window?.addEventListener("message", function (event) {
-//   console.log("Received message from iframe:", event.data)
-// })
+window?.addEventListener("message", function (event) {
+  if (event.data.type === "console") {
+    console.log("from iframe proxy console", event.data)
+  }
+})
 
 function onIframeLoad() {
   if (iframeRef.value) {
-    window.parent.postMessage({ status: "ready" }, "*")
+    // window.parent.postMessage({ status: "ready" }, "*")
   }
 }
 </script>

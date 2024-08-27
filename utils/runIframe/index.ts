@@ -3,6 +3,7 @@ import { convertLessToCss, convertSassToCss } from "~/utils/editor/index"
 import { resetCss } from "./reset"
 import { normalizeCss } from "./normalize"
 import { compilerPreviewCss } from './preview'
+import { proxyConsoleScript } from './console'
 
 export interface RunIframeParams {
   html?: string;
@@ -100,6 +101,7 @@ export async function compilerIframeCode(options: RunIframeParams, preSettings: 
         <style> ${css} </style>
         ${linksTags}
         ${scriptsTags}
+        ${proxyConsoleScript}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelectorAll('a[href="#"]').forEach(function(anchor) {
